@@ -302,3 +302,19 @@ music.pause();
 musicBtn.textContent = "♫";
 }
 };
+let sections = document.querySelectorAll("#about,#highlights,#characters,#story,#ending,#contact");
+for(let i = 0; i < sections.length; i++){
+sections[i].classList.add("reveal");
+}
+function revealSections(){
+for(let i = 0; i < sections.length; i++){
+let position = sections[i].getBoundingClientRect().top;
+if(position < window.innerHeight - 100){
+sections[i].classList.add("show");
+}else{
+sections[i].classList.remove("show");
+}
+}
+}
+window.addEventListener("scroll",revealSections);
+revealSections();
