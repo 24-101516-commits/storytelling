@@ -850,6 +850,67 @@ font-size:15px;
 html[lang="ar"] #contact a{
 font-size:16px;
 }
+@media(max-width:900px){
+#ending{
+padding:65px 6%;
+}
+#ending h2{
+font-size:55px;
+}
+#contact{
+grid-template-columns:1fr 1fr;
+gap:25px;
+padding:35px 6% 20px;
+}
+#contact>div:first-child{
+grid-column:1/-1;
+}
+}
+@media(max-width:600px){
+#ending{
+padding:50px 5%;
+}
+#ending h2{
+font-size:40px;
+}
+#ending p{
+font-size:14px;
+}
+.ending-decoration{
+font-size:35px;
+}
+#ending .button{
+padding:12px 20px;
+font-size:13px;
+}
+#contact{
+grid-template-columns:1fr;
+text-align:center;
+gap:25px;
+}
+#contact h2{
+font-size:30px;
+}
+.footer-links,.footer-social{
+flex-direction:row;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+#contact a{
+font-size:13px;
+}
+.copyright{
+font-size:11px;
+line-height:1.7;
+}
+html[lang="ar"] #ending h2{
+font-size:38px;
+}
+html[lang="ar"] #ending p{
+font-size:17px;
+}
+}
 @keyframes heroMove{
 from{
 transform:scale(1);
