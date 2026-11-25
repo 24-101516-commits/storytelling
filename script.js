@@ -2,28 +2,6 @@ let langBtn = document.getElementById("lang");
 let language = "en";
 let elements = document.querySelectorAll("[data-en]");
 let images = document.querySelectorAll("[data-alt-en]");
-langBtn.onclick = function(){
-if(language == "en"){
-language = "ar";
-langBtn.textContent = "EN";
-document.documentElement.lang = "ar";
-document.documentElement.dir = "rtl";
-document.title = "سنو وايت - كتاب الحكايات المسحورة";
-}else{
-language = "en";
-langBtn.textContent = "AR";
-document.documentElement.lang = "en";
-document.documentElement.dir = "ltr";
-document.title = "Snow White - The Enchanted Storybook";
-}
-for(let i = 0; i < elements.length; i++){
-elements[i].textContent = elements[i].getAttribute("data-" + language);
-}
-for(let i = 0; i < images.length; i++){
-images[i].alt = images[i].getAttribute("data-alt-" + language);
-}
-showScene();
-};
 let chapters = [
 {
 title:"Once Upon a Time",
@@ -52,54 +30,75 @@ summary_ar:"تضل سنو وايت طريقها وتلتقي بحيوانات ا
 {
 title:"The Hidden Cottage",
 title_ar:"الكوخ الخفي",
-summary:"Snow White discovers a little cottage in the woods. With her animal friends, she cleans it and finds shelter.",
-summary_ar:"تكتشف سنو وايت كوخًا صغيرًا في الغابة. تنظفه بمساعدة الحيوانات وتجد فيه مأوى."
+summary:"Snow White discovers a little cottage in the woods.",
+summary_ar:"تكتشف سنو وايت كوخًا صغيرًا في الغابة."
 },
 {
 title:"The Seven Dwarfs",
 title_ar:"الأقزام السبعة",
-summary:"Seven dwarfs return from their mine and discover Snow White. They hear her story and promise to protect her.",
-summary_ar:"يعود الأقزام السبعة من المنجم ويكتشفون سنو وايت. يستمعون إلى قصتها ويعدونها بالحماية."
+summary:"Seven dwarfs return from their mine and discover Snow White. They promise to protect her.",
+summary_ar:"يعود الأقزام السبعة من المنجم ويكتشفون سنو وايت ويعدونها بالحماية."
 },
 {
 title:"A Moment of Happiness",
 title_ar:"لحظة من السعادة",
-summary:"Snow White and the dwarfs sing and dance together. Their joyful evenings make the cottage feel like home.",
-summary_ar:"تغني سنو وايت وترقص مع الأقزام. وتملأ أمسياتهم السعيدة الكوخ بالدفء."
+summary:"Snow White and the dwarfs sing and dance together.",
+summary_ar:"تغني سنو وايت وترقص مع الأقزام."
 },
 {
 title:"The Queen's Transformation",
 title_ar:"تحول الملكة",
-summary:"The Queen discovers that Snow White is alive. She prepares a potion and transforms herself into an old woman.",
-summary_ar:"تكتشف الملكة أن سنو وايت لا تزال حية. فتحضر جرعة سحرية وتحول نفسها إلى امرأة عجوز."
+summary:"The Queen prepares a potion and transforms herself into an old woman.",
+summary_ar:"تحضر الملكة جرعة سحرية وتحول نفسها إلى امرأة عجوز."
 },
 {
 title:"The Poisoned Apple",
 title_ar:"التفاحة المسمومة",
-summary:"Disguised as an old woman, the Queen visits the cottage. She offers Snow White an apple carrying a sleeping curse.",
-summary_ar:"تزور الملكة الكوخ متنكرة في هيئة عجوز. وتقدم لسنو وايت تفاحة تحمل لعنة النوم."
+summary:"The Queen visits the cottage and offers Snow White a poisoned apple.",
+summary_ar:"تزور الملكة الكوخ وتقدم لسنو وايت تفاحة مسمومة."
 },
 {
 title:"The Sleeping Princess",
 title_ar:"الأميرة النائمة",
-summary:"Snow White bites the apple and falls into a magical sleep. The grieving dwarfs lay her in a glass coffin surrounded by flowers.",
-summary_ar:"تقضم سنو وايت التفاحة وتغرق في نوم سحري. ويضعها الأقزام الحزينون في تابوت زجاجي تحيط به الزهور."
+summary:"Snow White falls into a magical sleep. The dwarfs lay her in a glass coffin surrounded by flowers.",
+summary_ar:"تغرق سنو وايت في نوم سحري ويضعها الأقزام في تابوت زجاجي تحيط به الزهور."
 },
 {
 title:"Breaking the Curse",
 title_ar:"كسر اللعنة",
-summary:"The Prince finds Snow White and the sleeping curse is broken. She awakens, bringing hope back to her friends.",
-summary_ar:"يجد الأمير سنو وايت وتنكسر لعنة النوم. فتستيقظ ويعود الأمل إلى أصدقائها."
+summary:"The Prince finds Snow White and the sleeping curse is broken.",
+summary_ar:"يجد الأمير سنو وايت وتنكسر لعنة النوم."
 },
 {
 title:"Happily Ever After",
 title_ar:"النهاية السعيدة",
-summary:"Snow White says goodbye to the dwarfs and begins a new life with the Prince. Together they travel toward a beautiful castle.",
-summary_ar:"تودع سنو وايت الأقزام وتبدأ حياة جديدة مع الأمير. ويتجهان معًا نحو قصر جميل."
+summary:"Snow White begins a new life with the Prince. Together they travel toward a beautiful castle.",
+summary_ar:"تبدأ سنو وايت حياة جديدة مع الأمير ويتجهان معًا نحو قصر جميل."
 }
 ];
-let sequences = [[1,2],[4,5],[6],[7],[8],[9,10],[11,12],[13,14,15],[16,17],[18],[19,20],[21,22]];
-let shots = [];
+let shots = [
+{image:"img 1.png",chapter:0},
+{image:"img 2.png",chapter:0},
+{image:"img 4.png",chapter:1},
+{image:"img 5.png",chapter:1},
+{image:"img 6.png",chapter:2},
+{image:"img 7.png",chapter:3},
+{image:"img 8.png",chapter:4},
+{image:"img 9.png",chapter:5},
+{image:"img 10.png",chapter:5},
+{image:"img 11.png",chapter:6},
+{image:"img 12.png",chapter:6},
+{image:"img 13.png",chapter:7},
+{image:"img 14.png",chapter:7},
+{image:"img 15.png",chapter:7},
+{image:"img 16.png",chapter:8},
+{image:"img 17.png",chapter:8},
+{image:"img 18.png",chapter:9},
+{image:"img 19.png",chapter:10},
+{image:"img 20.png",chapter:10},
+{image:"img 21.png",chapter:11},
+{image:"img 22.png",chapter:11}
+];
 let index = 0;
 let playing = true;
 let duration = 2000;
@@ -115,21 +114,19 @@ let nextBtn = document.getElementById("next");
 let playBtn = document.getElementById("play-film");
 let chapterButtons = document.querySelectorAll(".chapter-btn");
 let restartBtn = document.getElementById("restart-story");
-for(let i = 0; i < sequences.length; i++){
-for(let j = 0; j < sequences[i].length; j++){
-shots.push({
-image:sequences[i][j],
-chapter:i
-});
-}
+let loadedImages = [];
+for(let i = 0; i < shots.length; i++){
+let picture = new Image();
+picture.src = "img/" + shots[i].image;
+loadedImages.push(picture);
 }
 function showScene(){
 let currentShot = shots[index];
 let currentChapter = chapters[currentShot.chapter];
-storyImage.src = "img/img " + currentShot.image + ".png";
+storyImage.src = loadedImages[index].src;
 storyImage.style.animation = "none";
 storyImage.offsetWidth;
-storyImage.style.animation = "cinematicScene " + duration + "ms linear both";
+storyImage.style.animation = "cinematicScene 2s linear both";
 if(playing == false){
 storyImage.style.animationPlayState = "paused";
 }else{
@@ -233,6 +230,7 @@ block:"center"
 });
 };
 }
+if(restartBtn){
 restartBtn.onclick = function(){
 index = 0;
 playing = true;
@@ -242,6 +240,7 @@ behavior:"smooth",
 block:"center"
 });
 };
+}
 document.onkeydown = function(event){
 let position = film.getBoundingClientRect();
 if(event.target.tagName == "INPUT" || event.target.tagName == "TEXTAREA" || event.target.tagName == "BUTTON" || event.target.tagName == "A"){
@@ -268,7 +267,6 @@ if(playing == true && position.top < window.innerHeight && position.bottom > 0){
 nextScene();
 }
 },duration);
-showScene();
 let newsletter = document.getElementById("newsletter");
 let email = document.getElementById("email");
 let formStatus = document.getElementById("form-status");
@@ -281,7 +279,26 @@ formStatus.textContent = "Thank you! Your demo subscription is complete.";
 }
 email.value = "";
 };
-langBtn.addEventListener("click",function(){
+langBtn.onclick = function(){
+if(language == "en"){
+language = "ar";
+langBtn.textContent = "EN";
+document.documentElement.lang = "ar";
+document.documentElement.dir = "rtl";
+document.title = "سنو وايت - كتاب الحكايات المسحورة";
+}else{
+language = "en";
+langBtn.textContent = "AR";
+document.documentElement.lang = "en";
+document.documentElement.dir = "ltr";
+document.title = "Snow White - The Enchanted Storybook";
+}
+for(let i = 0; i < elements.length; i++){
+elements[i].textContent = elements[i].getAttribute("data-" + language);
+}
+for(let i = 0; i < images.length; i++){
+images[i].alt = images[i].getAttribute("data-alt-" + language);
+}
 if(language == "ar"){
 email.placeholder = "أدخل بريدك الإلكتروني";
 email.setAttribute("aria-label","البريد الإلكتروني");
@@ -290,18 +307,25 @@ email.placeholder = "Enter your email";
 email.setAttribute("aria-label","Email address");
 }
 formStatus.textContent = "";
-});
-let music = document.getElementById("bg-music");
+showScene();
+};
+let music = document.querySelector("audio");
 let musicBtn = document.getElementById("music-btn");
+if(music && musicBtn){
 musicBtn.onclick = function(){
 if(music.paused){
 music.play();
-musicBtn.textContent = "Ⅱ";
 }else{
 music.pause();
-musicBtn.textContent = "♫";
 }
 };
+music.onplay = function(){
+musicBtn.textContent = "Ⅱ";
+};
+music.onpause = function(){
+musicBtn.textContent = "♫";
+};
+}
 let sections = document.querySelectorAll("#about,#highlights,#characters,#story,#ending,#contact");
 for(let i = 0; i < sections.length; i++){
 sections[i].classList.add("reveal");
@@ -318,3 +342,4 @@ sections[i].classList.remove("show");
 }
 window.addEventListener("scroll",revealSections);
 revealSections();
+showScene();
