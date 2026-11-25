@@ -291,3 +291,14 @@ email.setAttribute("aria-label","Email address");
 }
 formStatus.textContent = "";
 });
+let music = document.getElementById("bg-music");
+let musicBtn = document.getElementById("music-btn");
+musicBtn.onclick = function(){
+if(music.paused){
+music.play();
+musicBtn.textContent = "Ⅱ";
+}else{
+music.pause();
+musicBtn.textContent = "♫";
+}
+};
