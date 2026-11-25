@@ -113,6 +113,8 @@ let film = document.getElementById("film");
 let prevBtn = document.getElementById("prev");
 let nextBtn = document.getElementById("next");
 let playBtn = document.getElementById("play-film");
+let chapterButtons = document.querySelectorAll(".chapter-btn");
+let restartBtn = document.getElementById("restart-story");
 for(let i = 0; i < sequences.length; i++){
 for(let j = 0; j < sequences[i].length; j++){
 shots.push({
@@ -127,23 +129,31 @@ let currentChapter = chapters[currentShot.chapter];
 storyImage.src = "img/img " + currentShot.image + ".png";
 storyImage.style.animation = "none";
 storyImage.offsetWidth;
-storyImage.style.animation = "storyZoom 2s linear both";
+storyImage.style.animation = "cinematicScene 2s linear both";
 if(playing == false){
 storyImage.style.animationPlayState = "paused";
+}else{
+storyImage.style.animationPlayState = "running";
 }
 if(language == "ar"){
 chapterTitle.textContent = currentChapter.title_ar;
 chapterDescription.textContent = currentChapter.summary_ar;
 chapterLabel.textContent = "الفصل " + (currentShot.chapter + 1);
 storyImage.alt = currentChapter.title_ar;
+prevBtn.setAttribute("aria-label","المشهد السابق");
+nextBtn.setAttribute("aria-label","المشهد التالي");
 }else{
 chapterTitle.textContent = currentChapter.title;
 chapterDescription.textContent = currentChapter.summary;
 chapterLabel.textContent = "CHAPTER " + (currentShot.chapter + 1);
 storyImage.alt = currentChapter.title;
+prevBtn.setAttribute("aria-label","Previous scene");
+nextBtn.setAttribute("aria-label","Next scene");
 }
 filmCount.textContent = (index + 1) + " / " + shots.length;
 filmProgress.style.width = ((index + 1) / shots.length * 100) + "%";
+updateChapters();
+updatePlayButton();
 }
 function nextScene(){
 if(index < shots.length - 1){
@@ -161,6 +171,23 @@ index = shots.length - 1;
 }
 showScene();
 }
+function updatePlayButton(){
+if(playing == true){
+playBtn.textContent = "Ⅱ";
+if(language == "ar"){
+playBtn.setAttribute("aria-label","إيقاف الحكاية مؤقتًا");
+}else{
+playBtn.setAttribute("aria-label","Pause story");
+}
+}else{
+playBtn.textContent = "▶";
+if(language == "ar"){
+playBtn.setAttribute("aria-label","تشغيل الحكاية");
+}else{
+playBtn.setAttribute("aria-label","Play story");
+}
+}
+}
 nextBtn.onclick = function(){
 nextScene();
 };
@@ -170,12 +197,69 @@ previousScene();
 playBtn.onclick = function(){
 if(playing == true){
 playing = false;
-playBtn.textContent = "▶";
 storyImage.style.animationPlayState = "paused";
 }else{
 playing = true;
-playBtn.textContent = "Ⅱ";
 storyImage.style.animationPlayState = "running";
+}
+updatePlayButton();
+};
+function updateChapters(){
+let currentChapter = shots[index].chapter;
+for(let i = 0; i < chapterButtons.length; i++){
+chapterButtons[i].classList.remove("active");
+chapterButtons[i].removeAttribute("aria-current");
+if(i == currentChapter){
+chapterButtons[i].classList.add("active");
+chapterButtons[i].setAttribute("aria-current","true");
+}
+}
+}
+function selectChapter(chapterNumber){
+for(let i = 0; i < shots.length; i++){
+if(shots[i].chapter == chapterNumber){
+index = i;
+break;
+}
+}
+showScene();
+}
+for(let i = 0; i < chapterButtons.length; i++){
+chapterButtons[i].onclick = function(){
+selectChapter(i);
+film.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+};
+}
+restartBtn.onclick = function(){
+index = 0;
+playing = true;
+showScene();
+film.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+};
+document.onkeydown = function(event){
+let position = film.getBoundingClientRect();
+if(event.target.tagName == "INPUT" || event.target.tagName == "TEXTAREA" || event.target.tagName == "BUTTON" || event.target.tagName == "A"){
+return;
+}
+if(position.top < window.innerHeight && position.bottom > 0){
+if(event.key == "ArrowRight"){
+event.preventDefault();
+nextScene();
+}
+if(event.key == "ArrowLeft"){
+event.preventDefault();
+previousScene();
+}
+if(event.key == " "){
+event.preventDefault();
+playBtn.click();
+}
 }
 };
 setInterval(function(){

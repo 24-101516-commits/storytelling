@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,initial-scale=1" name="viewport">
-<title>Snow White — The Enchanted Storybook</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snow White - The Enchanted Storybook</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;500&family=Cairo:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header id="header">
 <a href="#home" id="logo">
-<span data-ar="❦ سنو وايت " data-en="❦ Snow White ">❦ Snow White </span>
+<span data-ar="❦ سنو وايت" data-en="❦ Snow White">❦ Snow White</span>
 <small data-ar="كتاب الحكايات المسحورة" data-en="THE ENCHANTED STORYBOOK">THE ENCHANTED STORYBOOK</small>
 </a>
 <nav id="nav">
@@ -30,7 +30,7 @@
 <div class="hero-copy">
 <span class="eyebrow" data-ar="حكاية خيالية كلاسيكية · ١٩٣٧" data-en="A CLASSIC FAIRYTALE · 1937">A CLASSIC FAIRYTALE · 1937</span>
 <h1>
-<span data-ar="سنو وايت " data-en="Snow White ">Snow White </span>
+<span data-ar="سنو وايت" data-en="Snow White">Snow White</span>
 <em data-ar="والأقزام السبعة" data-en="&amp; the Seven Dwarfs">&amp; the Seven Dwarfs</em>
 </h1>
 <p data-ar="القليل من الطيبة يكسر أقسى اللعنات." data-en="A little kindness can break the darkest spell.">A little kindness can break the darkest spell.</p>
@@ -68,11 +68,31 @@
 <dt data-ar="المؤلف" data-en="Author">Author</dt>
 <dd data-ar="الأخوان غريم" data-en="Brothers Grimm">Brothers Grimm</dd>
 <dt data-ar="اللغات" data-en="Languages">Languages</dt>
-<dd data-ar="الإنجليزية / العربية" data-en="English / Arabic">English / Arabic</dd>
+<dd data-ar="الإنجليزية / العربية" data-en="English / العربية">English / العربية</dd>
 <dt data-ar="الفصول" data-en="Chapters">Chapters</dt>
 <dd data-ar="١٢ · ١٩٣٧" data-en="12 · 1937">12 · 1937</dd>
 </dl>
 <a class="button" data-ar="عرض تفاصيل القصة ←" data-en="View story details →" href="#story">View story details →</a>
+</div>
+</section>
+<section id="characters">
+<div class="section-head">
+<span class="eyebrow" data-ar="تعرف على الشخصيات" data-en="MEET THE CHARACTERS">MEET THE CHARACTERS</span>
+<h2 data-ar="الأصدقاء والسحر" data-en="Friends &amp; enchantments">Friends &amp; enchantments</h2>
+</div>
+<div class="cast">
+<figure>
+<img alt="Snow White" data-alt-ar="سنو وايت" data-alt-en="Snow White" src="img/img 7.png">
+<figcaption data-ar="سنو وايت" data-en="Snow White">Snow White</figcaption>
+</figure>
+<figure>
+<img alt="The Queen" data-alt-ar="الملكة" data-alt-en="The Queen" src="img/img 5.png">
+<figcaption data-ar="الملكة" data-en="The Queen">The Queen</figcaption>
+</figure>
+<figure>
+<img alt="The dwarfs" data-alt-ar="الأقزام السبعة" data-alt-en="The dwarfs" src="img/img 10.png">
+<figcaption data-ar="الأقزام السبعة" data-en="The Seven Dwarfs">The Seven Dwarfs</figcaption>
+</figure>
 </div>
 </section>
 <section id="story">
@@ -99,12 +119,72 @@
 <button aria-label="Pause story" id="play-film">Ⅱ</button>
 <div id="film-progress"></div>
 </div>
+<div class="chapter-navigation">
+<div class="chapter-heading">
+<span class="eyebrow" data-ar="استكشف الحكاية" data-en="EXPLORE THE STORY">EXPLORE THE STORY</span>
+<h2 data-ar="فصول الحكاية" data-en="The Story Chapters">The Story Chapters</h2>
+<p data-ar="اختر فصلًا للانتقال إلى المشهد مباشرة" data-en="Choose a chapter to explore the story">Choose a chapter to explore the story</p>
+</div>
+<div id="chapter-list">
+<button class="chapter-btn active" data-chapter="0">
+<span>01</span>
+<small data-ar="بداية الحكاية" data-en="Once Upon a Time">Once Upon a Time</small>
+</button>
+<button class="chapter-btn" data-chapter="1">
+<span>02</span>
+<small data-ar="المرآة السحرية" data-en="Mirror, Mirror">Mirror, Mirror</small>
+</button>
+<button class="chapter-btn" data-chapter="2">
+<span>03</span>
+<small data-ar="الهروب من القصر" data-en="Escape from the Castle">Escape from the Castle</small>
+</button>
+<button class="chapter-btn" data-chapter="3">
+<span>04</span>
+<small data-ar="الغابة المسحورة" data-en="The Enchanted Forest">The Enchanted Forest</small>
+</button>
+<button class="chapter-btn" data-chapter="4">
+<span>05</span>
+<small data-ar="الكوخ الخفي" data-en="The Hidden Cottage">The Hidden Cottage</small>
+</button>
+<button class="chapter-btn" data-chapter="5">
+<span>06</span>
+<small data-ar="الأقزام السبعة" data-en="The Seven Dwarfs">The Seven Dwarfs</small>
+</button>
+<button class="chapter-btn" data-chapter="6">
+<span>07</span>
+<small data-ar="لحظة من السعادة" data-en="A Moment of Happiness">A Moment of Happiness</small>
+</button>
+<button class="chapter-btn" data-chapter="7">
+<span>08</span>
+<small data-ar="تحول الملكة" data-en="The Queen's Transformation">The Queen's Transformation</small>
+</button>
+<button class="chapter-btn" data-chapter="8">
+<span>09</span>
+<small data-ar="التفاحة المسمومة" data-en="The Poisoned Apple">The Poisoned Apple</small>
+</button>
+<button class="chapter-btn" data-chapter="9">
+<span>10</span>
+<small data-ar="الأميرة النائمة" data-en="The Sleeping Princess">The Sleeping Princess</small>
+</button>
+<button class="chapter-btn" data-chapter="10">
+<span>11</span>
+<small data-ar="كسر اللعنة" data-en="Breaking the Curse">Breaking the Curse</small>
+</button>
+<button class="chapter-btn" data-chapter="11">
+<span>12</span>
+<small data-ar="النهاية السعيدة" data-en="Happily Ever After">Happily Ever After</small>
+</button>
+</div>
+<div class="story-tools">
+<button id="restart-story" data-ar="↻ إعادة الحكاية" data-en="↻ Restart Story">↻ Restart Story</button>
+<span data-ar="استخدم الأسهم للتنقل وزر المسافة للإيقاف" data-en="Use arrow keys to navigate and Space to pause">Use arrow keys to navigate and Space to pause</span>
+</div>
+</div>
 </section>
 </main>
 
-
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
+
+
