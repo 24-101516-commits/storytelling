@@ -129,7 +129,7 @@ let currentChapter = chapters[currentShot.chapter];
 storyImage.src = "img/img " + currentShot.image + ".png";
 storyImage.style.animation = "none";
 storyImage.offsetWidth;
-storyImage.style.animation = "cinematicScene 2s linear both";
+storyImage.style.animation = "cinematicScene " + duration + "ms linear both";
 if(playing == false){
 storyImage.style.animationPlayState = "paused";
 }else{
