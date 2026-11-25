@@ -269,3 +269,25 @@ nextScene();
 }
 },duration);
 showScene();
+let newsletter = document.getElementById("newsletter");
+let email = document.getElementById("email");
+let formStatus = document.getElementById("form-status");
+newsletter.onsubmit = function(event){
+event.preventDefault();
+if(language == "ar"){
+formStatus.textContent = "شكرًا! تم تسجيل اشتراكك تجريبيًا.";
+}else{
+formStatus.textContent = "Thank you! Your demo subscription is complete.";
+}
+email.value = "";
+};
+langBtn.addEventListener("click",function(){
+if(language == "ar"){
+email.placeholder = "أدخل بريدك الإلكتروني";
+email.setAttribute("aria-label","البريد الإلكتروني");
+}else{
+email.placeholder = "Enter your email";
+email.setAttribute("aria-label","Email address");
+}
+formStatus.textContent = "";
+});

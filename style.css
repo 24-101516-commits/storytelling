@@ -911,6 +911,60 @@ html[lang="ar"] #ending p{
 font-size:17px;
 }
 }
+#newsletter{
+grid-column:1/-1;
+padding:25px 0;
+border-top:1px solid #e5bd6550;
+}
+#newsletter h3{
+font-family:'Cormorant Garamond',Georgia,serif;
+font-size:30px;
+color:var(--gold);
+margin-bottom:10px;
+}
+#newsletter p{
+font-size:14px;
+margin-bottom:15px;
+}
+.newsletter-input{
+display:flex;
+max-width:450px;
+}
+#email{
+flex:1;
+min-width:0;
+padding:12px 15px;
+background:var(--paper);
+color:var(--forest);
+border:1px solid var(--gold);
+font:inherit;
+}
+#newsletter button{
+background:var(--gold);
+color:var(--forest);
+border:1px solid var(--gold);
+padding:12px 20px;
+transition:background .3s;
+}
+#newsletter button:hover{
+background:var(--paper);
+}
+#form-status{
+display:block;
+color:var(--gold);
+margin-top:12px;
+}
+html[lang="ar"] #newsletter h3{
+font-family:'Amiri',Georgia,serif;
+}
+@media(max-width:600px){
+.newsletter-input{
+margin:auto;
+}
+#newsletter button{
+padding:12px;
+}
+}
 @keyframes heroMove{
 from{
 transform:scale(1);
