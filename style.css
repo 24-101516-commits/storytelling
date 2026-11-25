@@ -769,6 +769,87 @@ font-size:19px;
 html[lang="ar"] .story-tools span{
 font-size:16px;
 }
+#ending{
+background:var(--paper);
+color:var(--forest);
+padding:90px 8%;
+text-align:center;
+}
+#ending .eyebrow{
+color:#a68c53;
+}
+#ending h2{
+font-size:clamp(45px,6vw,85px);
+line-height:1.1;
+margin:20px 0;
+}
+#ending p{
+font-size:17px;
+line-height:1.8;
+}
+.ending-decoration{
+font-size:45px;
+color:#a68c53;
+margin:15px 0;
+animation:sealFloat 4s ease-in-out infinite;
+}
+#ending .button{
+background:var(--forest);
+color:var(--paper);
+}
+#ending .button:hover{
+background:var(--gold);
+color:var(--forest);
+}
+#contact{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:35px;
+background:var(--forest);
+color:var(--paper);
+padding:45px 8% 20px;
+border-top:2px solid var(--gold);
+}
+#contact h2{
+font-size:36px;
+color:var(--gold);
+margin-bottom:10px;
+}
+#contact small{
+font-size:12px;
+}
+.footer-links,.footer-social{
+display:flex;
+flex-direction:column;
+gap:15px;
+justify-content:center;
+}
+#contact a{
+font-size:14px;
+transition:color .3s;
+}
+#contact a:hover{
+color:var(--gold);
+}
+.copyright{
+grid-column:1/-1;
+text-align:center;
+border-top:1px solid #e5bd6550;
+padding-top:20px;
+font-size:12px;
+}
+html[lang="ar"] #ending h2{
+line-height:1.4;
+}
+html[lang="ar"] #ending p{
+font-size:20px;
+}
+html[lang="ar"] #contact small{
+font-size:15px;
+}
+html[lang="ar"] #contact a{
+font-size:16px;
+}
 @keyframes heroMove{
 from{
 transform:scale(1);
