@@ -249,6 +249,129 @@ box-shadow:0 10px 20px #243e3533;
 .portrait-detail{
 animation:portraitSway 4s ease-in-out infinite;
 }
+.editorial h2{
+font-size:clamp(48px,6vw,88px);
+line-height:.95;
+margin:15px 0;
+color:var(--forest);
+letter-spacing:-.04em;
+}
+.editorial p{
+line-height:1.8;
+max-width:480px;
+}
+.rule{
+color:var(--red);
+font-size:28px;
+margin:20px 0;
+}
+.text-link{
+color:var(--red);
+border-bottom:1px solid #a88452;
+padding-bottom:5px;
+}
+html[lang="ar"] body{
+font-family:'Amiri',Georgia,serif;
+}
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] #logo,
+html[lang="ar"] em{
+font-family:'Amiri',Georgia,serif;
+letter-spacing:0;
+}
+html[lang="ar"] .hero>img{
+left:0;
+right:auto;
+width:72%;
+}
+html[lang="ar"] .hero:after{
+background:linear-gradient(270deg,#354e40 0%,#354e40 29%,#354e40ed 36%,transparent 70%);
+}
+html[lang="ar"] .hero-copy{
+left:auto;
+right:7%;
+width:34%;
+top:48%;
+text-align:right;
+direction:rtl;
+}
+html[lang="ar"] .hero-copy h1{
+font-size:clamp(42px,5vw,86px);
+line-height:1.05;
+margin:18px 0 12px;
+}
+html[lang="ar"] .hero-copy h1 em{
+font-size:.56em;
+line-height:1.35;
+margin:8px 0 0;
+}
+html[lang="ar"] .hero-copy p{
+font-size:clamp(16px,1.4vw,23px);
+max-width:none;
+line-height:1.55;
+}
+html[lang="ar"] .hero-copy .eyebrow{
+font-size:14px;
+letter-spacing:0;
+}
+html[lang="ar"] .hero-copy .button{
+display:inline-block;
+margin-top:24px;
+margin-right:0;
+margin-left:0;
+padding:15px 26px;
+font-size:19px;
+min-width:190px;
+text-align:center;
+}
+html[lang="ar"] .hero-seal{
+left:5%;
+right:auto;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:5px;
+font:700 30px 'Amiri',serif;
+line-height:1;
+}
+html[lang="ar"] .hero-seal br{
+display:none;
+}
+html[lang="ar"] .hero-seal small{
+font:12px/1.2 'Amiri',serif;
+letter-spacing:0;
+max-width:76px;
+}
+html[lang="ar"] .hero-index{
+right:8%;
+left:auto;
+letter-spacing:0;
+}
+html[lang="ar"] #logo small{
+font:12px 'Amiri',serif;
+letter-spacing:0;
+}
+html[lang="ar"] #nav{
+font-size:19px;
+}
+html[lang="ar"] .editorial h2{
+line-height:1.25;
+letter-spacing:0;
+}
+html[lang="ar"] .editorial{
+direction:rtl;
+text-align:right;
+}
+html[lang="ar"] .editorial .eyebrow{
+font-size:14px;
+letter-spacing:0;
+}
+html[lang="ar"] .portrait img.portrait-detail{
+left:-12%;
+right:auto;
+}
 @keyframes heroMove{
 to{
 transform:scale(1.09) translateX(1%);
